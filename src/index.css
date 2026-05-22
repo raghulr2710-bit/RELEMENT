@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-g1: #F7D501;
+  --color-g2: #5EC47A;
+  --color-g3: #2A8C50;
+  --color-g4: #1A5C35;
+  --color-g5: #0F3320;
+  --color-gold: #D4A843;
+  --color-sand: #F7F3EC;
+  --color-ink: #0F1A12;
+  --color-mid: #4A6355;
+  --color-light: #EBF5EE;
+
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-head: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Lora", Georgia, ui-serif, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer utilities {
+  .outline-word {
+    -webkit-text-stroke: 2px #F7D501;
+    color: transparent;
+  }
+}
+
+/* Custom scrollbar matching the near-black green and milk green thumb */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0F3320;
+}
+::-webkit-scrollbar-thumb {
+  background: #F7D501;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5EC47A;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #FFFFFF;
+  color: #0F1A12;
+  overflow-x: hidden;
+}

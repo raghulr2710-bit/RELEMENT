@@ -1,0 +1,6 @@
+{
+  "name": "RelementX Energy",
+  "description": "Critical material recovery and battery-grade compound refinery homepage with interactive product catalogs, technology visualizations, deep FAQs, and clean Call to Actions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
