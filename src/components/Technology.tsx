@@ -49,7 +49,7 @@ export default function Technology() {
         </div>
 
         {/* 2-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Pillars List */}
           <div className="flex flex-col gap-4">
             {pillars.map((pillar, idx) => (
@@ -82,7 +82,7 @@ export default function Technology() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="bg-g5 border border-white/5 rounded-3xl p-8 md:p-14 relative flex flex-col items-center justify-center overflow-hidden min-h-[460px] shadow-xl shadow-g5/20 group"
+            className=" bg-g5 border border-white/5 rounded-3xl p-8 md:p-14 relative flex flex-col items-center justify-center overflow-hidden min-h-[460px] shadow-xl shadow-g5/20 group lg:sticky lg:top-28 self-start"
           >
             {/* Concentric Dashed Rings styled in head */}
             <div className="relative w-full aspect-square max-w-[320px] md:max-w-[360px] mx-auto select-none">
