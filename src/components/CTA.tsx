@@ -69,27 +69,36 @@ export default function CTA() {
   };
 
   return (
-    <section id="contact" className="px-6 md:px-16 py-24 md:py-32 bg-sand text-ink relative">
+    <section
+      id="contact"
+      className="px-6 md:px-16 py-24 md:py-32 text-white relative"
+      style={{
+        backgroundImage: "linear-gradient(rgba(10, 34, 21, 0.45), rgba(10, 34, 21, 0.55)), url('/contact-bg.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat"
+      }}
+    >
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-3 text-xs md:text-sm font-bold uppercase tracking-widest text-g3 mb-4">
-            <span className="block w-6 h-[2px] bg-g3" />
+          <div className="inline-flex items-center gap-3 text-xs md:text-sm font-bold uppercase tracking-widest text-g2 mb-4">
+            <span className="block w-6 h-[2px] bg-g2" />
             Get In Touch
-            <span className="block w-6 h-[2px] bg-g3" />
+            <span className="block w-6 h-[2px] bg-g2" />
           </div>
-          <h2 className="text-3xl md:text-5xl font-black text-ink leading-tight tracking-tight mb-4 select-none">
+          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight tracking-tight mb-4 select-none">
             Let&apos;s Build Something
             <br />
             Sustainable Together
           </h2>
-          <p className="text-sm md:text-base font-light text-mid max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base font-light text-white/80 max-w-2xl mx-auto leading-relaxed">
             Whether you have end-of-life batteries, need a specific battery-grade compound, or want to explore investment opportunities — we would love to hear from you.
           </p>
         </div>
 
         {/* Dynamic Track Selection Panels */}
-        <div className="grid grid-cols-3 gap-2 max-w-2xl mx-auto mb-10 pb-6 border-b border-black/5">
+        <div className="grid grid-cols-3 gap-2 max-w-2xl mx-auto mb-10 pb-6 border-b border-white/10">
           <button
             onClick={() => {
               setActiveTrack('recycle');
@@ -97,7 +106,7 @@ export default function CTA() {
             }}
             className={`flex flex-col items-center justify-center p-4 rounded-xl text-center cursor-pointer transition-all duration-300 border ${
               activeTrack === 'recycle'
-                ? 'bg-g5 text-white border-g4 shadow-md shadow-g5/15'
+                ? 'bg-[#0B2516]/80 text-white border-g2 shadow-md shadow-g5/20 backdrop-blur-md'
                 : 'bg-white border-black/5 text-mid hover:border-g3/30 hover:bg-g3/3'
             }`}
           >
@@ -114,7 +123,7 @@ export default function CTA() {
             }}
             className={`flex flex-col items-center justify-center p-4 rounded-xl text-center cursor-pointer transition-all duration-300 border ${
               activeTrack === 'purchase'
-                ? 'bg-g5 text-white border-g4 shadow-md shadow-g5/15'
+                ? 'bg-[#0B2516]/80 text-white border-g2 shadow-md shadow-g5/20 backdrop-blur-md'
                 : 'bg-white border-black/5 text-mid hover:border-g3/30 hover:bg-g3/3'
             }`}
           >
@@ -131,7 +140,7 @@ export default function CTA() {
             }}
             className={`flex flex-col items-center justify-center p-4 rounded-xl text-center cursor-pointer transition-all duration-300 border ${
               activeTrack === 'invest'
-                ? 'bg-g5 text-white border-g4 shadow-md shadow-g5/15'
+                ? 'bg-[#0B2516]/80 text-white border-g2 shadow-md shadow-g5/20 backdrop-blur-md'
                 : 'bg-white border-black/5 text-mid hover:border-g3/30 hover:bg-g3/3'
             }`}
           >
@@ -143,7 +152,7 @@ export default function CTA() {
         </div>
 
         {/* Dynamic Card & Input Form */}
-        <div className="bg-white rounded-3xl p-6 md:p-10 border border-black/5 shadow-2xl shadow-g3/5 max-w-2xl mx-auto overflow-hidden relative">
+        <div className="bg-[#0A2215]/85 rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl backdrop-blur-md max-w-2xl mx-auto overflow-hidden relative">
           <AnimatePresence mode="wait">
             {!formSubmitted ? (
               <motion.form
@@ -156,37 +165,37 @@ export default function CTA() {
                 className="space-y-5"
               >
                 {/* Specific path custom settings indicators */}
-                <div className="bg-light/45 border border-black/4 p-4 rounded-xl">
+                <div className="bg-[#05140C]/65 border border-white/5 p-4 rounded-xl">
                   {activeTrack === 'recycle' && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="text-[10px] font-bold tracking-wider uppercase text-mid block mb-1.5">
+                        <label className="text-[10px] font-bold tracking-wider uppercase text-white/70 block mb-1.5">
                           Feedstock Chemistry
                         </label>
                         <select
                           value={chemistry}
                           onChange={(e) => setChemistry(e.target.value)}
-                          className="w-full text-xs px-3 py-2 bg-white border border-black/10 rounded-lg focus:outline-none focus:border-g3"
+                          className="w-full text-xs px-3 py-2 bg-[#0B1E14]/65 border border-white/10 text-white rounded-lg focus:outline-none focus:border-g2 focus:ring-1 focus:ring-g2"
                         >
-                          <option value="NMC">Nickel Manganese Cobalt (NMC)</option>
-                          <option value="LFP">Lithium Iron Phosphate (LFP)</option>
-                          <option value="NCA">Nickel Cobalt Aluminum (NCA)</option>
-                          <option value="Mixed">Mixed Batteries / Cells Scrap</option>
+                          <option className="bg-[#05140C] text-white" value="NMC">Nickel Manganese Cobalt (NMC)</option>
+                          <option className="bg-[#05140C] text-white" value="LFP">Lithium Iron Phosphate (LFP)</option>
+                          <option className="bg-[#05140C] text-white" value="NCA">Nickel Cobalt Aluminum (NCA)</option>
+                          <option className="bg-[#05140C] text-white" value="Mixed">Mixed Batteries / Cells Scrap</option>
                         </select>
                       </div>
                       <div>
-                        <label className="text-[10px] font-bold tracking-wider uppercase text-mid block mb-1.5">
+                        <label className="text-[10px] font-bold tracking-wider uppercase text-white/70 block mb-1.5">
                           Estimated Monthly Volume
                         </label>
                         <select
                           value={volume}
                           onChange={(e) => setVolume(e.target.value)}
-                          className="w-full text-xs px-3 py-2 bg-white border border-black/10 rounded-lg focus:outline-none focus:border-g3"
+                          className="w-full text-xs px-3 py-2 bg-[#0B1E14]/65 border border-white/10 text-white rounded-lg focus:outline-none focus:border-g2 focus:ring-1 focus:ring-g2"
                         >
-                          <option value="<10T">Under 10 Tonnes / Month</option>
-                          <option value="10-50T">10 to 50 Tonnes / Month</option>
-                          <option value="50-200T">50 to 200 Tonnes / Month</option>
-                          <option value=">200T">Over 200 Tonnes / Month</option>
+                          <option className="bg-[#05140C] text-white" value="<10T">Under 10 Tonnes / Month</option>
+                          <option className="bg-[#05140C] text-white" value="10-50T">10 to 50 Tonnes / Month</option>
+                          <option className="bg-[#05140C] text-white" value="50-200T">50 to 200 Tonnes / Month</option>
+                          <option className="bg-[#05140C] text-white" value=">200T">Over 200 Tonnes / Month</option>
                         </select>
                       </div>
                     </div>
@@ -194,39 +203,39 @@ export default function CTA() {
 
                   {activeTrack === 'purchase' && (
                     <div>
-                      <label className="text-[10px] font-bold tracking-wider uppercase text-mid block mb-1.5">
+                      <label className="text-[10px] font-bold tracking-wider uppercase text-white/70 block mb-1.5">
                         Target Refined Compound Spec
                       </label>
                       <select
                         value={productTarget}
                         onChange={(e) => setProductTarget(e.target.value)}
-                        className="w-full text-xs px-3 py-2 bg-white border border-black/10 rounded-lg focus:outline-none focus:border-g3"
+                        className="w-full text-xs px-3 py-2 bg-[#0B1E14]/65 border border-white/10 text-white rounded-lg focus:outline-none focus:border-g2 focus:ring-1 focus:ring-g2"
                       >
-                        <option value="Li₂CO₃ (Lithium Carbonate)">Li₂CO₃ (Lithium Carbonate — Battery Grade)</option>
-                        <option value="LiFePO₄ (Lithium Phosphate)">LiFePO₄ (Lithium Phosphate — Battery Grade)</option>
-                        <option value="CoC₂O₄ (Cobalt Oxalate)">CoC₂O₄ (Cobalt Oxalate — Battery Grade)</option>
-                        <option value="CoSO₄ (Cobalt Sulphate)">CoSO₄ (Cobalt Sulphate — Battery Grade)</option>
-                        <option value="NiSO₄ (Nickel Sulpate)">NiSO₄ (Nickel Sulphate — Battery Grade)</option>
-                        <option value="MnSO₄ (Manganese Sulphate)">MnSO₄ (Manganese Sulphate — Battery Grade)</option>
-                        <option value="Custom specification">Custom Compound Composition Specifications</option>
+                        <option className="bg-[#05140C] text-white" value="Li₂CO₃ (Lithium Carbonate)">Li₂CO₃ (Lithium Carbonate — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="LiFePO₄ (Lithium Phosphate)">LiFePO₄ (Lithium Phosphate — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="CoC₂O₄ (Cobalt Oxalate)">CoC₂O₄ (Cobalt Oxalate — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="CoSO₄ (Cobalt Sulphate)">CoSO₄ (Cobalt Sulphate — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="NiSO₄ (Nickel Sulpate)">NiSO₄ (Nickel Sulphate — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="MnSO₄ (Manganese Sulphate)">MnSO₄ (Manganese Sulphate — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="Custom specification">Custom Compound Composition Specifications</option>
                       </select>
                     </div>
                   )}
 
                   {activeTrack === 'invest' && (
                     <div>
-                      <label className="text-[10px] font-bold tracking-wider uppercase text-mid block mb-1.5">
+                      <label className="text-[10px] font-bold tracking-wider uppercase text-white/70 block mb-1.5">
                         Investor Class
                       </label>
                       <select
                         value={investorType}
                         onChange={(e) => setInvestorType(e.target.value)}
-                        className="w-full text-xs px-3 py-2 bg-white border border-black/10 rounded-lg focus:outline-none focus:border-g3"
+                        className="w-full text-xs px-3 py-2 bg-[#0B1E14]/65 border border-white/10 text-white rounded-lg focus:outline-none focus:border-g2 focus:ring-1 focus:ring-g2"
                       >
-                        <option value="Strategic Fund">Venture / Private Equity Fund</option>
-                        <option value="Clean-Tech LP">Strategic Corporate / Clean-Tech Partner</option>
-                        <option value="Impact Capital">E-Waste/Battery Processing Recycler</option>
-                        <option value="Institutional Support">Impact / Climate Focus Capital</option>
+                        <option className="bg-[#05140C] text-white" value="Strategic Fund">Venture / Private Equity Fund</option>
+                        <option className="bg-[#05140C] text-white" value="Clean-Tech LP">Strategic Corporate / Clean-Tech Partner</option>
+                        <option className="bg-[#05140C] text-white" value="Impact Capital">E-Waste/Battery Processing Recycler</option>
+                        <option className="bg-[#05140C] text-white" value="Institutional Support">Impact / Climate Focus Capital</option>
                       </select>
                     </div>
                   )}
@@ -235,26 +244,26 @@ export default function CTA() {
                 {/* Core Unified elements */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-[10px] font-bold tracking-wider uppercase text-mid block mb-1">
+                    <label className="text-[10px] font-bold tracking-wider uppercase text-white/70 block mb-1">
                       Full Name *
                     </label>
                     <input
                       required
                       type="text"
-                      className="w-full text-xs px-3 py-2.5 bg-white border border-black/10 rounded-lg focus:outline-none focus:border-g3"
+                      className="w-full text-xs px-3 py-2.5 bg-[#0B1E14]/65 border border-white/10 text-white rounded-lg focus:outline-none focus:border-g2 focus:ring-1 focus:ring-g2 placeholder-white/35"
                       placeholder="Jane Doe"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label className="text-[10px] font-bold tracking-wider uppercase text-mid block mb-1">
+                    <label className="text-[10px] font-bold tracking-wider uppercase text-white/70 block mb-1">
                       Professional Email *
                     </label>
                     <input
                       required
                       type="email"
-                      className="w-full text-xs px-3 py-2.5 bg-white border border-black/10 rounded-lg focus:outline-none focus:border-g3"
+                      className="w-full text-xs px-3 py-2.5 bg-[#0B1E14]/65 border border-white/10 text-white rounded-lg focus:outline-none focus:border-g2 focus:ring-1 focus:ring-g2 placeholder-white/35"
                       placeholder="jane@company.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -263,16 +272,16 @@ export default function CTA() {
                 </div>
 
                 <div>
-                  <label className="text-[10px] font-bold tracking-wider uppercase text-mid block mb-1">
+                  <label className="text-[10px] font-bold tracking-wider uppercase text-white/70 block mb-1">
                     Company Name
                   </label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-mid/60">
+                    <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-white/40">
                       <Building className="w-3.5 h-3.5" />
                     </div>
                     <input
                       type="text"
-                      className="w-full text-xs pl-9 pr-3 py-2.5 bg-white border border-black/10 rounded-lg focus:outline-none focus:border-g3"
+                      className="w-full text-xs pl-9 pr-3 py-2.5 bg-[#0B1E14]/65 border border-white/10 text-white rounded-lg focus:outline-none focus:border-g2 focus:ring-1 focus:ring-g2 placeholder-white/35"
                       placeholder="e.g. CleanCells India Pvt Ltd"
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
@@ -281,12 +290,12 @@ export default function CTA() {
                 </div>
 
                 <div>
-                  <label className="text-[10px] font-bold tracking-wider uppercase text-mid block mb-1">
+                  <label className="text-[10px] font-bold tracking-wider uppercase text-white/70 block mb-1">
                     Specific Message Specs
                   </label>
                   <textarea
                     rows={3}
-                    className="w-full text-xs px-3 py-2.5 bg-white border border-black/10 rounded-lg focus:outline-none focus:border-g3"
+                    className="w-full text-xs px-3 py-2.5 bg-[#0B1E14]/65 border border-white/10 text-white rounded-lg focus:outline-none focus:border-g2 focus:ring-1 focus:ring-g2 placeholder-white/35"
                     placeholder="Describe any battery metrics, technical specifications, or target investment parameters..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -297,7 +306,7 @@ export default function CTA() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full py-3.5 bg-g4 hover:bg-g3 hover:shadow-lg hover:shadow-g3/15 text-white text-xs font-bold tracking-wider uppercase rounded-xl transition-all duration-200 flex items-center justify-center gap-2 select-none cursor-pointer disabled:opacity-75"
+                  className="w-full py-3.5 bg-g3 hover:bg-g2 text-white text-xs font-bold tracking-wider uppercase rounded-xl transition-all duration-200 flex items-center justify-center gap-2 select-none cursor-pointer disabled:opacity-75 shadow-lg shadow-g5/20"
                 >
                   {submitting ? 'Constructing Proposal...' : 'Create Partnership Request'}
                 </button>
@@ -309,18 +318,18 @@ export default function CTA() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-8 space-y-6"
               >
-                <div className="w-16 h-16 bg-g1/20 border border-g2/20 text-g3 rounded-full flex items-center justify-center mx-auto shadow-md">
+                <div className="w-16 h-16 bg-g1/20 border border-g2/20 text-g2 rounded-full flex items-center justify-center mx-auto shadow-md">
                   <Check className="w-8 h-8" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-ink">Partnership Proposal Formed!</h3>
-                  <p className="text-xs text-mid mt-2 max-w-md mx-auto leading-relaxed">
+                  <h3 className="text-xl font-bold text-white">Partnership Proposal Formed!</h3>
+                  <p className="text-xs text-white/80 mt-2 max-w-md mx-auto leading-relaxed">
                     To maintain strict security and coordinate with our technical mail servers, click the button below to initiate your secure draft with pre-formatted specifications directly to us.
                   </p>
                 </div>
 
                 {/* Visual Draft Content Previewbox */}
-                <div className="p-4 bg-light/75 border border-black/5 rounded-xl text-left max-h-[160px] overflow-y-auto font-mono text-[9px] text-mid/80 leading-normal whitespace-pre-wrap select-all">
+                <div className="p-4 bg-[#05140C]/65 border border-white/10 rounded-xl text-left max-h-[160px] overflow-y-auto font-mono text-[9px] text-white/80 leading-normal whitespace-pre-wrap select-all">
                   To: info@relementx.com
                   <br />
                   Subject: RelementX Inquiry — {name} ({company || 'Company'})
@@ -342,14 +351,14 @@ export default function CTA() {
                       // Small delay before resetting
                       setTimeout(() => resetForm(), 2000);
                     }}
-                    className="flex-1 py-3 bg-g1 hover:bg-[#D4F7DC] text-g5 font-extrabold text-xs tracking-wider uppercase rounded-xl flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                    className="flex-1 py-3 bg-g1 hover:bg-g1/80 text-g5 font-extrabold text-xs tracking-wider uppercase rounded-xl flex items-center justify-center gap-2 transition-colors cursor-pointer"
                   >
                     <Mail className="w-4 h-4" />
                     Open Secure Mail Draft
                   </a>
                   <button
                     onClick={resetForm}
-                    className="px-5 py-3 border border-black/10 hover:bg-black/3 text-mid font-semibold text-xs rounded-xl transition-colors"
+                    className="px-5 py-3 border border-white/20 hover:bg-white/5 text-white font-semibold text-xs rounded-xl transition-colors cursor-pointer"
                   >
                     Modify Details
                   </button>
@@ -361,12 +370,12 @@ export default function CTA() {
 
         {/* Big original styled email link anchor, centered */}
         <div className="text-center mt-16 select-all">
-          <p className="text-xs text-mid uppercase font-bold tracking-widest mb-2 opacity-55">
+          <p className="text-xs text-white uppercase font-bold tracking-widest mb-2 opacity-60">
             Direct Corporate Contact Desk
           </p>
           <a
             href="mailto:info@relementx.com"
-            className="inline-block text-lg md:text-3xl font-black text-g4 select-all border-b-2 border-g2 pb-1.5 transition-all duration-300 hover:text-g3 hover:border-g1 leading-none"
+            className="inline-block text-lg md:text-3xl font-black text-white select-all border-b-2 border-g2/60 pb-1.5 transition-all duration-300 hover:text-g2 hover:border-g2 leading-none"
           >
             info@relementx.com
           </a>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowDown, ArrowRight } from 'lucide-react';
+import { ArrowDown, ArrowRight, Hexagon, Leaf, Recycle, Sprout, Settings } from 'lucide-react';
 
 interface Particle {
   id: number;
@@ -105,7 +105,7 @@ export default function Hero() {
           <br />
           Minerals for a
           <br />
-          <span className="outline-word select-none font-black block md:inline md:ml-4">Cleaner</span> Future
+          <span className="select-none font-black block md:inline md:ml-4">Cleaner</span> Future
         </motion.h1>
 
         {/* Description paragraph */}
@@ -140,32 +140,77 @@ export default function Hero() {
             <ArrowRight className="w-4 h-4" />
           </button>
         </motion.div>
-
-        {/* Stats segment */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-2 lg:grid-cols-5 gap-6 md:gap-10 pt-8 border-t border-white/10"
-        >
-          {[
-            { value: '>95%', label: 'Material Yield' },
-            { value: '100%', label: 'Organic Process' },
-            { value: 'Zero', label: 'Toxic Waste' },
-            { value: 'Battery', label: 'Grade Purity' },
-            { value: 'Custom', label: 'Process Design' },
-          ].map((stat, idx) => (
-            <div key={idx} className="group">
-              <div className="text-2xl md:text-4xl font-extrabold text-g1 tracking-tight duration-300 group-hover:scale-105 origin-left">
-                {stat.value}
-              </div>
-              <div className="text-[10px] md:text-xs font-semibold tracking-wider text-white/40 uppercase mt-1">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </motion.div>
       </div>
+
+      {/* Stats segment */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="relative z-10 w-full pt-12 border-t border-white/10 grid grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-0"
+      >
+        {[
+          {
+            icon: (
+              <div className="relative w-12 h-12 mb-4 flex items-center justify-center text-g1">
+                <Hexagon className="w-12 h-12 absolute stroke-[1.8]" />
+                <Leaf className="w-6 h-6 absolute stroke-[1.8]" />
+              </div>
+            ),
+            value: '>95%',
+            label: 'Material Yield',
+          },
+          {
+            icon: <Recycle className="w-12 h-12 text-g1 mb-4 stroke-[1.8]" />,
+            value: '100%',
+            label: 'Organic Process',
+          },
+          {
+            icon: <Sprout className="w-12 h-12 text-g1 mb-4 stroke-[1.8]" />,
+            value: 'Zero',
+            label: 'Toxic Waste',
+          },
+          {
+            icon: (
+              <svg
+                className="w-12 h-12 text-g1 mb-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="7" y="5" width="10" height="15" rx="2" />
+                <path d="M10 5V2.5h4V5" />
+                <line x1="9.5" y1="16.5" x2="14.5" y2="16.5" />
+                <line x1="9.5" y1="12.5" x2="14.5" y2="12.5" />
+                <line x1="9.5" y1="8.5" x2="14.5" y2="8.5" />
+              </svg>
+            ),
+            value: 'Battery',
+            label: 'Grade Purity',
+          },
+          {
+            icon: <Settings className="w-12 h-12 text-g1 mb-4 stroke-[1.8]" />,
+            value: 'Custom',
+            label: 'Process Design',
+          },
+        ].map((stat, idx) => (
+          <div
+            key={idx}
+            className="group flex flex-col items-center text-center px-4 py-4 lg:border-r lg:border-white/10 lg:last:border-r-0"
+          >
+            {stat.icon}
+            <div className="text-2xl md:text-4xl font-extrabold text-g1 tracking-tight duration-300 group-hover:scale-105 uppercase">
+              {stat.value}
+            </div>
+            <div className="text-[10px] md:text-xs font-semibold tracking-wider text-white/50 uppercase mt-2">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </motion.div>
     </section>
   );
 }

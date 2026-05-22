@@ -20,10 +20,6 @@
 }
 
 @layer utilities {
-  .outline-word {
-    -webkit-text-stroke: 2px #F7D501;
-    color: transparent;
-  }
 }
 
 /* Custom scrollbar matching the near-black green and milk green thumb */
