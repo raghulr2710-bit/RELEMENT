@@ -35,7 +35,7 @@ export default function WhyRecycle() {
           </span>
 
           <div className="relative z-10">
-            <p className="font-serif italic text-base md:text-xl md:leading-relaxed text-white/85 max-w-4xl">
+            <p className="font-serif italic text-base md:text-xl md:leading-relaxed text-white/85">
               We understand that the future is not just about extraction — it is about{' '}
               <em className="not-italic text-g1 font-head font-semibold tracking-tight">
                 sustainable recovery without harming the environment.
