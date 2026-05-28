@@ -102,7 +102,7 @@ export const productFamilies: ProductFamily[] = [
     name: 'Lithium',
     products: [
       { symbol: 'Li₂CO₃', name: 'Lithium Carbonate', grade: 'Battery Grade' },
-      { symbol: 'LiFePO₄', name: 'Lithium Phosphate', grade: 'Battery Grade' },
+      { symbol: 'Li₃PO₄', name: 'Lithium Phosphate', grade: 'Battery Grade' },
       { symbol: 'LiPF₆', name: 'Lithium Electrolyte Salt', grade: 'Battery Grade' }
     ]
   },
@@ -137,6 +137,25 @@ export const productFamilies: ProductFamily[] = [
       { symbol: 'MnO₂', name: 'Manganese Dioxide', grade: 'Battery Grade' },
       { symbol: 'Mn(OH)₂', name: 'Manganese Hydroxide', grade: 'Battery Grade' },
       { symbol: 'MnCO₃', name: 'Manganese Carbonate', grade: 'Battery Grade' }
+    ]
+  },
+  {
+    id: "Cam",
+    name: "Cathode material",
+    products: [
+      { symbol: 'LiFePO4', name: 'Lithium Iron Phosphate', grade: 'Battery Grade' },
+      { symbol: 'NMC', name: 'Nickel Manganese Cobalt Oxide ', grade: 'Battery Grade' },
+    ]
+  },
+  {
+    id: "PCM",
+    name: 'Pre-cam material ',
+    products: [
+      {
+        symbol: 'MHP',
+        name: 'Metal hydroxide precipitate',
+        grade: 'Battery Grade'
+      }
     ]
   }
 ];

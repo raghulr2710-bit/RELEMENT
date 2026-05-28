@@ -1,6 +1,55 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 
 export default function Technology() {
+  const [activeStep, setActiveStep] = useState<number>(0);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+
+  const steps = [
+    {
+      title: 'Blackmass Input',
+      desc: 'Feedstock derived from spent battery packs, shredded and ready for processing.',
+      emoji: '🔋',
+      posClass: 'top-[2%] left-1/2 -translate-x-1/2',
+      label: 'Blackmass',
+      sublabel: 'Input',
+    },
+    {
+      title: 'Organic Acid Leaching',
+      desc: 'Selective dissolution of critical minerals using bio-friendly organic acids.',
+      emoji: '⚗️',
+      posClass: 'top-1/2 right-[2%] -translate-y-1/2',
+      label: 'Organic Acid',
+      sublabel: 'Leaching',
+    },
+    {
+      title: 'Proprietary Solution',
+      desc: 'Liquid pregnant leach solution containing dissolved metallic complexes.',
+      emoji: '🧪',
+      posClass: 'bottom-[2%] left-1/2 -translate-x-1/2',
+      label: 'Proprietary',
+      sublabel: 'Solution',
+    },
+    {
+      title: 'Metal Separation',
+      desc: 'Separation of metals through our in – house precipitation process.',
+      emoji: '🔬',
+      posClass: 'top-1/2 left-[2%] -translate-y-1/2',
+      label: 'In-House',
+      sublabel: 'Precipitation',
+    },
+  ];
+
+  useEffect(() => {
+    if (isHovered) return;
+
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % steps.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [isHovered, steps.length]);
+
   const pillars = [
     {
       icon: '🌿',
@@ -39,12 +88,12 @@ export default function Technology() {
             Our Technology
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold text-ink leading-tight tracking-tight mb-4">
-            In-House Developed.
+            In – House Developed.
             <br />
-            Organically Driven.
+            Environmentally and Economically Efficient process
           </h2>
           <p className="text-sm md:text-base font-light text-mid max-w-2xl leading-relaxed">
-            Our proprietary recovery technology is built entirely on organic chemistry — no solvents, no toxic reagents, no hazardous discharge. Every process reagent is recovered, recycled, and reused.
+            Our proprietary recovery technology is built entirely on Organic acid leaching – No solvent extraction, no toxic reagents, no hazardous discharge. Every process reagent is recovered, recycled, and reused.
           </p>
         </div>
 
@@ -82,77 +131,98 @@ export default function Technology() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className=" bg-g5 border border-white/5 rounded-3xl p-8 md:p-14 relative flex flex-col items-center justify-center overflow-hidden min-h-[460px] shadow-xl shadow-g5/20 group lg:sticky lg:top-28 self-start"
+            className="bg-g5 border border-white/5 rounded-3xl p-8 md:p-14 relative flex flex-col items-center justify-center overflow-hidden min-h-[460px] shadow-xl shadow-g5/20 group lg:sticky lg:top-28 self-start"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
             {/* Concentric Dashed Rings styled in head */}
             <div className="relative w-full aspect-square max-w-[320px] md:max-w-[360px] mx-auto select-none">
               {/* Inner Ring */}
               <div
-                className="absolute top-1/2 left-1/2 w-[160px] h-[160px] md:w-[180px] md:h-[180px] border border-dashed border-g1/20 rounded-full animate-[spin_20s_linear_infinite]"
+                className="absolute top-1/2 left-1/2 pointer-events-none"
                 style={{ transform: 'translate(-50%, -50%)' }}
-              />
+              >
+                <div
+                  className={`w-[160px] h-[160px] md:w-[180px] md:h-[180px] border border-dashed rounded-full transition-all duration-500 ${
+                    isHovered
+                      ? 'border-g1/50 scale-105 animate-[spin_10s_linear_infinite]'
+                      : 'border-g1/20 animate-[spin_20s_linear_infinite]'
+                  }`}
+                />
+              </div>
 
               {/* Outer Ring */}
               <div
-                className="absolute top-1/2 left-1/2 w-[260px] h-[260px] md:w-[280px] md:h-[280px] border border-dashed border-g2/20 rounded-full animate-[spin_32s_linear_infinite_reverse]"
+                className="absolute top-1/2 left-1/2 pointer-events-none"
                 style={{ transform: 'translate(-50%, -50%)' }}
-              />
+              >
+                <div
+                  className={`w-[260px] h-[260px] md:w-[280px] md:h-[280px] border border-dashed rounded-full transition-all duration-500 ${
+                    isHovered
+                      ? 'border-g2/50 scale-95 animate-[spin_16s_linear_infinite_reverse]'
+                      : 'border-g2/20 animate-[spin_32s_linear_infinite_reverse]'
+                  }`}
+                />
+              </div>
 
               {/* Center Core Logo box */}
               <div
-                className="absolute top-1/2 left-1/2 w-24 h-24 bg-g1 rounded-full flex flex-col items-center justify-center text-center shadow-lg shadow-g1/25 z-10 transition-transform duration-300 group-hover:scale-105"
+                className="absolute top-1/2 left-1/2 z-10 pointer-events-none"
                 style={{ transform: 'translate(-50%, -50%)' }}
               >
-                <span className="text-2xl">♻️</span>
-                <span className="text-[9px] md:text-[10px] font-black tracking-widest text-g5 uppercase mt-1">
-                  Closed Loop
-                </span>
+                <div
+                  className={`w-24 h-24 rounded-full flex flex-col items-center justify-center text-center shadow-lg transition-all duration-300 ${
+                    isHovered
+                      ? 'bg-g1 scale-110 shadow-g1/40'
+                      : 'bg-g1 scale-100 shadow-g1/25 group-hover:scale-105'
+                  }`}
+                >
+                  <span className="text-2xl transition-transform duration-300">
+                    {steps[activeStep].emoji}
+                  </span>
+                  <span className="text-[9px] md:text-[10px] font-black tracking-widest text-g5 uppercase mt-1">
+                    Step {activeStep + 1}
+                  </span>
+                </div>
               </div>
 
               {/* Cardinal Process Nodes */}
-              {/* TOP Node */}
-              <div className="absolute top-[2%] left-1/2 -translate-x-1/2 bg-white/7 border border-g1/20 rounded-xl px-3.5 py-2.5 text-center backdrop-blur-md min-w-[100px] md:min-w-[110px] shadow-md shadow-black/15 group-hover:bg-white/10 transition-colors">
-                <span className="text-lg md:text-xl block mb-0.5">🔋</span>
-                <span className="text-[9px] md:text-[10px] font-bold text-white/80 leading-snug block uppercase tracking-wider">
-                  Spent
-                  <br />
-                  Battery Input
-                </span>
-              </div>
-
-              {/* RIGHT Node */}
-              <div className="absolute top-1/2 right-[2%] -translate-y-1/2 bg-white/7 border border-g1/20 rounded-xl px-3.5 py-2.5 text-center backdrop-blur-md min-w-[100px] md:min-w-[110px] shadow-md shadow-black/15 group-hover:bg-white/10 transition-colors">
-                <span className="text-lg md:text-xl block mb-0.5">⚗️</span>
-                <span className="text-[9px] md:text-[10px] font-bold text-white/80 leading-snug block uppercase tracking-wider">
-                  Organic
-                  <br />
-                  Extraction
-                </span>
-              </div>
-
-              {/* BOTTOM Node */}
-              <div className="absolute bottom-[2%] left-1/2 -translate-x-1/2 bg-white/7 border border-g1/20 rounded-xl px-3.5 py-2.5 text-center backdrop-blur-md min-w-[100px] md:min-w-[110px] shadow-md shadow-black/15 group-hover:bg-white/10 transition-colors">
-                <span className="text-lg md:text-xl block mb-0.5">🏆</span>
-                <span className="text-[9px] md:text-[10px] font-bold text-white/80 leading-snug block uppercase tracking-wider">
-                  Battery-Grade
-                  <br />
-                  Products
-                </span>
-              </div>
-
-              {/* LEFT Node */}
-              <div className="absolute top-1/2 left-[2%] -translate-y-1/2 bg-white/7 border border-g1/20 rounded-xl px-3.5 py-2.5 text-center backdrop-blur-md min-w-[100px] md:min-w-[110px] shadow-md shadow-black/15 group-hover:bg-white/10 transition-colors">
-                <span className="text-lg md:text-xl block mb-0.5">🔄</span>
-                <span className="text-[9px] md:text-[10px] font-bold text-white/80 leading-snug block uppercase tracking-wider">
-                  Reagent
-                  <br />
-                  Recovery
-                </span>
-              </div>
+              {steps.map((step, idx) => {
+                const isActive = activeStep === idx;
+                return (
+                  <div
+                    key={idx}
+                    className={`absolute bg-white/7 border backdrop-blur-md shadow-md shadow-black/15 transition-all duration-300 cursor-pointer rounded-xl px-3 py-2 text-center min-w-[110px] md:min-w-[120px] ${
+                      step.posClass
+                    } ${
+                      isActive
+                        ? 'border-g1 bg-white/20 scale-105 z-20 shadow-g1/20 shadow-lg'
+                        : 'border-g1/20 hover:border-g1/40 hover:bg-white/10'
+                    }`}
+                    onMouseEnter={() => setActiveStep(idx)}
+                    onClick={() => setActiveStep(idx)}
+                  >
+                    <span className={`text-lg md:text-xl block mb-0.5 transition-transform duration-300 ${isActive ? 'scale-110' : ''}`}>
+                      {step.emoji}
+                    </span>
+                    <span className={`text-[9px] md:text-[10px] font-bold leading-snug block uppercase tracking-wider transition-colors duration-300 ${isActive ? 'text-g1' : 'text-white/80'}`}>
+                      {step.label}
+                      <br />
+                      {step.sublabel}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
 
-            <div className="mt-8 text-center text-xs text-white/35 tracking-wider uppercase font-semibold">
-              Fully closed-loop organic recovery process
+            {/* Dynamic Step Detail Box */}
+            <div className="mt-8 text-center max-w-[320px] md:max-w-[360px] min-h-[64px] flex flex-col justify-center items-center">
+              <span className="text-[11px] md:text-xs text-g1 font-extrabold uppercase tracking-widest block mb-1">
+                {steps[activeStep].title}
+              </span>
+              <p className="text-[10px] md:text-[11px] text-white/50 leading-relaxed font-medium max-w-[280px]">
+                {steps[activeStep].desc}
+              </p>
             </div>
           </motion.div>
         </div>

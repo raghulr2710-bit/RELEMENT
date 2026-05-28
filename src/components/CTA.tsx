@@ -16,6 +16,7 @@ export default function CTA() {
   const [message, setMessage] = useState('');
 
   // Track specific states
+  const [feedstockType, setFeedstockType] = useState('Black Mass');
   const [chemistry, setChemistry] = useState('NMC');
   const [volume, setVolume] = useState('10-50T');
   const [productTarget, setProductTarget] = useState('Li₂CO₃ (Lithium Carbonate)');
@@ -40,7 +41,8 @@ export default function CTA() {
     let body = `Hello RelementX Team,\n\nMy name is ${name} from ${company || 'our company'}.\n\n`;
 
     if (activeTrack === 'recycle') {
-      body += `I would like to explore recycling options for our batteries.\n`;
+      body += `I would like to explore recycling options for our feedstock.\n`;
+      body += `- Feedstock Category: ${feedstockType}\n`;
       body += `- Selected Chemistry: ${chemistry}\n`;
       body += `- Estimated Monthly Volume: ${volume}\n\n`;
     } else if (activeTrack === 'purchase') {
@@ -93,7 +95,7 @@ export default function CTA() {
             Sustainable Together
           </h2>
           <p className="text-sm md:text-base font-light text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Whether you have end-of-life batteries, need a specific battery-grade compound, or want to explore investment opportunities — we would love to hear from you.
+            We are actively procuring Black mass and End-of-life batteries. Whether you have feedstock to supply, need a specific battery-grade compound, or want to explore investment opportunities — we would love to hear from you.
           </p>
         </div>
 
@@ -164,10 +166,36 @@ export default function CTA() {
                 onSubmit={handleSubmit}
                 className="space-y-5"
               >
+                {activeTrack === 'recycle' && (
+                  <div className="bg-[#05140C]/65 border border-g2/30 text-g2 px-4 py-3 rounded-xl text-xs font-medium flex items-center gap-3">
+                    <span className="relative flex h-2 w-2 shrink-0">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-g2 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-g2"></span>
+                    </span>
+                    <span>
+                      We are actively procuring <strong className="font-extrabold text-white">Black mass</strong> and <strong className="font-extrabold text-white">End-of-life batteries</strong>.
+                    </span>
+                  </div>
+                )}
+
                 {/* Specific path custom settings indicators */}
                 <div className="bg-[#05140C]/65 border border-white/5 p-4 rounded-xl">
                   {activeTrack === 'recycle' && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div>
+                        <label className="text-[10px] font-bold tracking-wider uppercase text-white/70 block mb-1.5">
+                          Feedstock Category
+                        </label>
+                        <select
+                          value={feedstockType}
+                          onChange={(e) => setFeedstockType(e.target.value)}
+                          className="w-full text-xs px-3 py-2 bg-[#0B1E14]/65 border border-white/10 text-white rounded-lg focus:outline-none focus:border-g2 focus:ring-1 focus:ring-g2 font-semibold"
+                        >
+                          <option className="bg-[#05140C] text-white" value="Black Mass">Black Mass (Major Focus)</option>
+                          <option className="bg-[#05140C] text-white" value="Battery Feedstock">Battery Feedstock</option>
+                          <option className="bg-[#05140C] text-white" value="End-of-life Batteries">End-of-Life Batteries</option>
+                        </select>
+                      </div>
                       <div>
                         <label className="text-[10px] font-bold tracking-wider uppercase text-white/70 block mb-1.5">
                           Feedstock Chemistry
@@ -177,10 +205,11 @@ export default function CTA() {
                           onChange={(e) => setChemistry(e.target.value)}
                           className="w-full text-xs px-3 py-2 bg-[#0B1E14]/65 border border-white/10 text-white rounded-lg focus:outline-none focus:border-g2 focus:ring-1 focus:ring-g2"
                         >
-                          <option className="bg-[#05140C] text-white" value="NMC">Nickel Manganese Cobalt (NMC)</option>
-                          <option className="bg-[#05140C] text-white" value="LFP">Lithium Iron Phosphate (LFP)</option>
-                          <option className="bg-[#05140C] text-white" value="NCA">Nickel Cobalt Aluminum (NCA)</option>
-                          <option className="bg-[#05140C] text-white" value="Mixed">Mixed Batteries / Cells Scrap</option>
+                          <option className="bg-[#05140C] text-white" value="Nickel Manganese Cobalt Oxide (532, 622, 811, 111)">Nickel Manganese Cobalt Oxide (532, 622, 811, 111)</option>
+                          <option className="bg-[#05140C] text-white" value="Lithium Iron Phosphate (LiFePO4)">Lithium Iron Phosphate (LiFePO4)</option>
+                          <option className="bg-[#05140C] text-white" value="Graphite">Graphite</option>
+                          <option className="bg-[#05140C] text-white" value="Nickel Cobalt Aluminum (NCA)">Nickel Cobalt Aluminum (NCA)</option>
+                          <option className="bg-[#05140C] text-white" value="Mixed">Mixed Scrap</option>
                         </select>
                       </div>
                       <div>
@@ -211,12 +240,31 @@ export default function CTA() {
                         onChange={(e) => setProductTarget(e.target.value)}
                         className="w-full text-xs px-3 py-2 bg-[#0B1E14]/65 border border-white/10 text-white rounded-lg focus:outline-none focus:border-g2 focus:ring-1 focus:ring-g2"
                       >
+                        {/* Lithium Compounds */}
                         <option className="bg-[#05140C] text-white" value="Li₂CO₃ (Lithium Carbonate)">Li₂CO₃ (Lithium Carbonate — Battery Grade)</option>
-                        <option className="bg-[#05140C] text-white" value="LiFePO₄ (Lithium Phosphate)">LiFePO₄ (Lithium Phosphate — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="Li₃PO₄ (Lithium Phosphate)">Li₃PO₄ (Lithium Phosphate — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="LiPF₆ (Lithium Electrolyte Salt)">LiPF₆ (Lithium Electrolyte Salt — Battery Grade)</option>
+                        {/* Cobalt Compounds */}
                         <option className="bg-[#05140C] text-white" value="CoC₂O₄ (Cobalt Oxalate)">CoC₂O₄ (Cobalt Oxalate — Battery Grade)</option>
                         <option className="bg-[#05140C] text-white" value="CoSO₄ (Cobalt Sulphate)">CoSO₄ (Cobalt Sulphate — Battery Grade)</option>
-                        <option className="bg-[#05140C] text-white" value="NiSO₄ (Nickel Sulpate)">NiSO₄ (Nickel Sulphate — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="Co₃O₄ (Cobalt Oxide)">Co₃O₄ (Cobalt Oxide — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="Co(OH)₂ (Cobalt Hydroxide)">Co(OH)₂ (Cobalt Hydroxide — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="CoCO₃ (Cobalt Carbonate)">CoCO₃ (Cobalt Carbonate — Battery Grade)</option>
+                        {/* Nickel Compounds */}
+                        <option className="bg-[#05140C] text-white" value="NiC₂O₄ (Nickel Oxalate)">NiC₂O₄ (Nickel Oxalate — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="NiSO₄ (Nickel Sulphate)">NiSO₄ (Nickel Sulphate — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="NiO (Nickel Oxide)">NiO (Nickel Oxide — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="Ni(OH)₂ (Nickel Hydroxide)">Ni(OH)₂ (Nickel Hydroxide — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="NiCO₃ (Nickel Carbonate)">NiCO₃ (Nickel Carbonate — Battery Grade)</option>
+                        {/* Manganese Compounds */}
+                        <option className="bg-[#05140C] text-white" value="MnC₂O₄ (Manganese Oxalate)">MnC₂O₄ (Manganese Oxalate — Battery Grade)</option>
                         <option className="bg-[#05140C] text-white" value="MnSO₄ (Manganese Sulphate)">MnSO₄ (Manganese Sulphate — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="MnO₂ (Manganese Dioxide)">MnO₂ (Manganese Dioxide — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="Mn(OH)₂ (Manganese Hydroxide)">Mn(OH)₂ (Manganese Hydroxide — Battery Grade)</option>
+                        <option className="bg-[#05140C] text-white" value="MnCO₃ (Manganese Carbonate)">MnCO₃ (Manganese Carbonate — Battery Grade)</option>
+                        {/* Anode Materials */}
+                        <option className="bg-[#05140C] text-white" value="C (Graphite)">C (Graphite — Battery Grade Anode Material)</option>
+                        {/* Custom Option */}
                         <option className="bg-[#05140C] text-white" value="Custom specification">Custom Compound Composition Specifications</option>
                       </select>
                     </div>
@@ -339,7 +387,7 @@ export default function CTA() {
                   <br />
                   My name is {name} from {company || 'our company'}.
                   <br />
-                  {activeTrack === 'recycle' && `Selected Feedstock Chemistry: ${chemistry} at estimated volume of ${volume}`}
+                  {activeTrack === 'recycle' && `Selected Feedstock Category: ${feedstockType}, Chemistry: ${chemistry} at estimated volume of ${volume}`}
                   {activeTrack === 'purchase' && `Target Recycled Compound requested: ${productTarget}`}
                   {activeTrack === 'invest' && `Investor target profile class: ${investorType}`}
                 </div>

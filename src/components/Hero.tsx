@@ -115,8 +115,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-sm md:text-lg font-light leading-relaxed text-white/60 max-w-xl mb-10"
         >
-          RelementX Energy recovers battery-grade lithium, cobalt, nickel, and manganese compounds from end-of-life batteries — using an entirely organic, solvent-free, zero-waste process developed in-house.
-        </motion.p>
+          RelementX Energy focuses on recovering critical metals by producing battery-grade lithium, cobalt, nickel, and manganese compounds from end-of-life batteries (or) black mass. The company has developed an in-house, zero-waste processing technology based on organic acids leaching, completely eliminating the use of mineral acids and organic solvent extractants while enabling a sustainable and environmentally friendly recycling process.    </motion.p>
 
         {/* Action Buttons */}
         <motion.div
