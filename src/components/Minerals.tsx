@@ -52,12 +52,39 @@ export default function Minerals() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
-              className="bg-white/4 border border-g1/10 rounded-2xl overflow-hidden shadow-xl"
+              className="group bg-white/4 border border-g1/10 rounded-2xl overflow-hidden shadow-xl"
             >
-              {/* Col Header */}
-              <div className={`px-6 py-5 flex items-center gap-3 ${getHeaderStyle(col.type)}`}>
-                <span className="text-2xl">{col.icon}</span>
-                <h4 className="text-sm font-bold tracking-wide">{col.title}</h4>
+              {/* Col Header with Image Background */}
+              <div className="relative h-44 overflow-hidden flex items-end p-6 border-b border-transparent">
+                {/* Background Image */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style={{
+                    backgroundImage: `url(${col.type === 'ev'
+                      ? '/energystorage.webp'
+                      : col.type === 'solar'
+                        ? '/solar.webp'
+                        : '/enerystoragebox.webp'
+                      })`,
+                  }}
+                />
+                {/* Dark gradient overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent z-10 pointer-events-none" />
+
+                {/* Header text content */}
+                <h4 className="relative z-20 text-lg font-black tracking-tight text-white leading-tight max-w-[200px] drop-shadow-md">
+                  {col.title}
+                </h4>
+
+                {/* Bottom Border Accent Line */}
+                <div
+                  className={`absolute bottom-0 left-0 right-0 h-[3px] z-20 ${col.type === 'ev'
+                    ? 'bg-g1'
+                    : col.type === 'solar'
+                      ? 'bg-gold'
+                      : 'bg-g2'
+                    }`}
+                />
               </div>
 
               {/* Col Body Elements */}

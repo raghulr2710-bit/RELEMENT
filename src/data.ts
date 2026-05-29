@@ -17,31 +17,36 @@ export const whyCards: WhyCard[] = [
     num: '01',
     icon: '⚡',
     title: 'Powering the Energy Transition',
-    description: 'Electric vehicles, grid storage, and renewable energy systems all depend on lithium, cobalt, nickel, and manganese. Recycling secures these critical inputs from existing batteries — reducing dependence on primary mining.'
+    description: 'Electric vehicles, grid storage, and renewable energy systems all depend on lithium, cobalt, nickel, and manganese. Recycling secures these critical inputs from existing batteries — reducing dependence on primary mining.',
+    bgImage: '/Powering the Energy Transition.webp'
   },
   {
     num: '02',
     icon: '🌍',
     title: 'Protecting the Environment',
-    description: 'Spent batteries contain valuable materials that become hazardous waste if not properly recovered. Our process returns these materials to the supply chain cleanly — with zero toxic discharge and no landfill burden.'
+    description: 'Spent batteries contain valuable materials that become hazardous waste if not properly recovered. Our process returns these materials to the supply chain cleanly — with zero toxic discharge and no landfill burden.',
+    bgImage: '/Protecting the Environment.webp'
   },
   {
     num: '03',
     icon: '🔄',
     title: 'Building a Circular Economy',
-    description: "The critical minerals in today's battery become tomorrow's new cell. Closing this loop domestically reduces import dependence, creates local value, and makes clean energy truly circular and self-sustaining."
+    description: "The critical minerals in today's battery become tomorrow's new cell. Closing this loop domestically reduces import dependence, creates local value, and makes clean energy truly circular and self-sustaining.",
+    bgImage: '/Building a Circular Economy.webp'
   },
   {
     num: '04',
     icon: '🏭',
     title: 'Supply Chain Security',
-    description: "India's growing EV and electronics sectors need a reliable domestic supply of battery-grade materials. Recycling existing end-of-life assets builds that supply resilience without new extraction."
+    description: "India's growing EV and electronics sectors need a reliable domestic supply of battery-grade materials. Recycling existing end-of-life assets builds that supply resilience without new extraction.",
+    bgImage: '/Supply Chain Security.webp'
   },
   {
     num: '05',
     icon: '🌿',
     title: 'Lower Carbon Footprint',
-    description: 'Recovering materials from batteries uses significantly less energy than primary mining and refining. Our organic, low-temperature process further minimises the carbon cost of every kilogram recovered.'
+    description: 'Recovering materials from batteries uses significantly less energy than primary mining and refining. Our organic, low-temperature process further minimises the carbon cost of every kilogram recovered.',
+    bgImage: '/Lower Carbon Footprint.webp'
   },
   {
     num: '06',

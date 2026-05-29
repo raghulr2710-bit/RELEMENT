@@ -3,6 +3,7 @@ export interface WhyCard {
   icon: string;
   title: string;
   description: string;
+  bgImage?: string;
 }
 
 export interface MineralItem {

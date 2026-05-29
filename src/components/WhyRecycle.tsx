@@ -61,18 +61,31 @@ export default function WhyRecycle() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="relative bg-white rounded-2xl p-8 border border-black/5 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-g3/10 transition-all duration-300 overflow-hidden group hover:border-g2/20"
             >
-              <span className="absolute top-6 right-6 font-head text-3xl font-black text-g3/6 group-hover:text-g3/15 transition-colors duration-300">
+              {/* Background Image (if present) */}
+              {card.bgImage && (
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-55"
+                  style={{ backgroundImage: `url("${card.bgImage}")` }}
+                />
+              )}
+
+              {/* Card number badge */}
+              <span className="absolute top-6 right-6 font-head text-3xl font-black text-g3/6 group-hover:text-g3/15 z-10 transition-colors duration-300">
                 {card.num}
               </span>
-              <span className="text-4xl mb-6 block transform group-hover:scale-110 origin-left transition-transform duration-300">
-                {card.icon}
-              </span>
-              <h3 className="text-base sm:text-lg font-bold text-ink mb-3 group-hover:text-g3 transition-colors">
-                {card.title}
-              </h3>
-              <p className="text-sm text-mid leading-relaxed font-light">
-                {card.description}
-              </p>
+
+              {/* Content wrapper */}
+              <div className="relative z-10 flex flex-col h-full">
+                <span className="text-4xl mb-6 block transform group-hover:scale-110 origin-left transition-transform duration-300">
+                  {card.icon}
+                </span>
+                <h3 className="text-base sm:text-lg font-bold text-ink mb-3 group-hover:text-g3 transition-colors duration-300">
+                  {card.title}
+                </h3>
+                <p className="text-sm text-mid leading-relaxed font-light">
+                  {card.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -76,68 +76,93 @@ export default function Hero() {
         className="absolute right-0 top-0 w-full md:w-[55%] h-full opacity-6 pointer-events-none mix-blend-screen bg-repeat"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V17L28 1l28 16v33L28 66z' fill='none' stroke='%23F7D501' stroke-width='0.8'/%3E%3Cpath d='M28 100L0 84V51l28-17 28 17v33L28 100z' fill='none' stroke='%23F7D501' stroke-width='0.8'/%3E%3C/svg%3E")`,
+          // backgroundImage: `url("/banner.webp")`,
           backgroundSize: '56px 100px',
         }}
       />
 
-      <div className="relative z-10 max-w-5xl">
-        {/* Eyebrow badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-3 px-4 py-1.5 border border-g1/30 rounded-full mb-8 bg-g5/40 backdrop-blur-sm"
-        >
-          <span className="w-2 h-2 bg-g1 rounded-full animate-ping" />
-          <span className="text-[10px] md:text-xs font-bold tracking-widest text-g1 uppercase">
-            Critical Material Recovery · Battery Grade Purity · Zero Waste
-          </span>
-        </motion.div>
-
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-4xl sm:text-6xl md:text-8xl font-black leading-[0.98] tracking-tight text-white mb-6"
-        >
-          Recovering <em className="not-italic text-g1">Critical</em>
-          <br />
-          Minerals for a
-          <br />
-          <span className="select-none font-black block md:inline md:ml-4">Cleaner</span> Future
-        </motion.h1>
-
-        {/* Description paragraph */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-sm md:text-lg font-light leading-relaxed text-white/60 max-w-xl mb-10"
-        >
-          RelementX Energy focuses on recovering critical metals by producing battery-grade lithium, cobalt, nickel, and manganese compounds from end-of-life batteries (or) black mass. The company has developed an in-house, zero-waste processing technology based on organic acids leaching, completely eliminating the use of mineral acids and organic solvent extractants while enabling a sustainable and environmentally friendly recycling process.    </motion.p>
-
-        {/* Action Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-          className="flex flex-wrap gap-4 mb-20"
-        >
-          <button
-            onClick={() => handleScrollTo('#products')}
-            className="flex items-center gap-2 px-8 py-4 bg-g1 hover:bg-[#D4F7DC] text-g5 font-bold rounded-full cursor-pointer transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-g1/15 hover:shadow-g1/30"
+      <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-16 lg:mb-20">
+        {/* Left Column: Content */}
+        <div className="lg:col-span-7 flex flex-col justify-center">
+          {/* Eyebrow badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex self-start items-center gap-3 px-4 py-1.5 border border-g1/30 rounded-full mb-8 bg-g5/40 backdrop-blur-sm"
           >
-            Explore Products
-            <ArrowDown className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => handleScrollTo('#technology')}
-            className="flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-g1/35 hover:border-g1 text-g1 hover:bg-g1/10 font-bold rounded-full cursor-pointer transition-all duration-300 transform hover:-translate-y-1"
+            <span className="w-2 h-2 bg-g1 rounded-full animate-ping" />
+            <span className="text-[10px] md:text-xs font-bold tracking-widest text-g1 uppercase">
+              Critical Material Recovery · Battery Grade Purity · Zero Waste
+            </span>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.98] tracking-tight text-white mb-6"
           >
-            Our Technology
-            <ArrowRight className="w-4 h-4" />
-          </button>
+            Recovering <em className="not-italic text-g1">Critical</em>
+            <br />
+            Minerals for a
+            <br />
+            <span className="select-none font-black block md:inline">Cleaner</span> Future
+          </motion.h1>
+
+          {/* Description paragraph */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-sm md:text-lg font-light leading-relaxed text-white/60 max-w-xl mb-10"
+          >
+            RelementX Energy focuses on recovering critical metals by producing battery-grade lithium, cobalt, nickel, and manganese compounds from end-of-life batteries (or) black mass. The company has developed an in-house, zero-waste processing technology based on organic acids leaching, completely eliminating the use of mineral acids and organic solvent extractants while enabling a sustainable and environmentally friendly recycling process.
+          </motion.p>
+
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="flex flex-wrap gap-4"
+          >
+            <button
+              onClick={() => handleScrollTo('#products')}
+              className="flex items-center gap-2 px-8 py-4 bg-g1 hover:bg-[#D4F7DC] text-g5 font-bold rounded-full cursor-pointer transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-g1/15 hover:shadow-g1/30"
+            >
+              Explore Products
+              <ArrowDown className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => handleScrollTo('#technology')}
+              className="flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-g1/35 hover:border-g1 text-g1 hover:bg-g1/10 font-bold rounded-full cursor-pointer transition-all duration-300 transform hover:-translate-y-1"
+            >
+              Our Technology
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </motion.div>
+        </div>
+
+        {/* Right Column: Hero Image */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="lg:col-span-5 flex justify-center lg:justify-end w-full"
+        >
+          <div className="relative w-full max-w-[480px] aspect-[4/3] rounded-3xl overflow-hidden border border-g1/25 shadow-[0_0_50px_-15px_rgba(247,213,1,0.25)] bg-gradient-to-br from-g1/10 to-transparent p-1 group">
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#0F3320]/80 via-transparent to-transparent z-10 pointer-events-none" />
+            <img
+              src="/banner.webp"
+              alt="Critical Mineral Recovery Facility"
+              className="w-full h-full object-cover rounded-[22px] transition-transform duration-700 group-hover:scale-105"
+            />
+            {/* Ambient glows behind/around the image container */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-g1/20 rounded-full blur-[60px] pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-g2/20 rounded-full blur-[60px] pointer-events-none" />
+          </div>
         </motion.div>
       </div>
 
@@ -146,7 +171,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="relative z-10 w-full pt-12 border-t border-white/10 grid grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-0"
+        className="relative z-10 w-full max-w-7xl mx-auto pt-12 border-t border-white/10 grid grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-0"
       >
         {[
           {
